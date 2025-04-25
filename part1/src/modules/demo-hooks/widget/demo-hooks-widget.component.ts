@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { IManagedObject, InventoryService } from '@c8y/client';
+import { CoreModule } from '@c8y/ngx-components';
 
 @Component({
   selector: 'demo-hooks-component',
@@ -11,8 +12,10 @@ import { IManagedObject, InventoryService } from '@c8y/client';
     <br />
     <strong>{{ deviceManagementObject.lastUpdated | c8yDate }}</strong>
     }`,
+  standalone: true,
+  imports: [CoreModule],
 })
-export class DemoHooksComponent implements OnInit {
+export class DemoHooksWidgetComponent implements OnInit {
   @Input() config!: { device: { id: string } };
 
   deviceManagementObject!: IManagedObject;
@@ -25,6 +28,3 @@ export class DemoHooksComponent implements OnInit {
       .then((response) => (this.deviceManagementObject = response.data));
   }
 }
-
-
-
