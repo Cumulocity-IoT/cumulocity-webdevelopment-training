@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, inject, Input, OnInit } from '@angular/core';
 import { IManagedObject, InventoryService } from '@c8y/client';
 import { CoreModule } from '@c8y/ngx-components';
 
@@ -20,7 +20,7 @@ export class DemoHooksWidgetComponent implements OnInit {
 
   deviceManagementObject!: IManagedObject;
 
-  constructor(private inventoryService: InventoryService) {}
+  private inventoryService = inject(InventoryService);
 
   ngOnInit() {
     this.inventoryService

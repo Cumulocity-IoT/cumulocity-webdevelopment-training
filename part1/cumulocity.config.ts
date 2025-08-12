@@ -7,7 +7,7 @@ export default {
     name,
     dynamicOptionsUrl: true,
     remotes: {
-      'demo-plugin': ['DemoHooksModule'],
+      [name]: ['demoHookWidgetProviders'],
     },
     package: 'plugin',
     isPackage: true,
@@ -15,8 +15,8 @@ export default {
     exports: [
       {
         name: 'Demo hooks plugin',
-        module: 'DemoHooksModule',
-        path: './src/modules/demo-hooks/demo-hooks.module.ts',
+        module: 'demoHookWidgetProviders',
+        path: './src/modules/demo-hooks/widget/index.ts',
         description: 'Demonstrate various hooks',
       },
     ],
@@ -36,7 +36,7 @@ export default {
       '@c8y/ngx-components',
       'ngx-bootstrap',
       '@ngx-translate/core',
-      '@ngx-formly/core'
-    ]
-  }
+      '@ngx-formly/core',
+    ],
+  },
 } as const satisfies ConfigurationOptions;
